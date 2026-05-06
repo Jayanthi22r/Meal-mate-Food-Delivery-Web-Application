@@ -18,3 +18,4 @@ Tools: VS Code, MySQL Workbench
 🎯 Project Goal
 
 The main aim of Meal-Mate is to simplify food ordering by providing a fast, reliable, and user-friendly online platform that connects customers with restaurants efficiently.
+http://127.0.0.1:8000/
