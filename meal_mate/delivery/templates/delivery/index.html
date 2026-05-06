@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal-Mate</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to right, #f8f5f0, #e8dfd1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 450px;
+            padding: 45px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-top: 6px solid #8b5e3c;
+        }
+
+        h1 {
+            color: #5c3d2e;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #8b5e3c;
+            font-size: 22px;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 14px 28px;
+            margin: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .signin-btn {
+            background: #5cb85c;
+            color: white;
+        }
+
+        .signin-btn:hover {
+            background: #449d44;
+        }
+
+        .signup-btn {
+            background: #d4a017;
+            color: white;
+        }
+
+        .signup-btn:hover {
+            background: #b8860b;
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon">🍽️</div>
+
+        <h1>Meal-Mate</h1>
+        <h2>Welcome to Meal-Mate</h2>
+
+        <p>
+            Order your favorite meals from the best restaurants
+            with a fast and easy food delivery experience.
+        </p>
+
+        <a href="signin/" class="btn signin-btn">Sign In</a>
+        <a href="signup/" class="btn signup-btn">Sign Up</a>
+    </div>
+
+</body>
+</html>

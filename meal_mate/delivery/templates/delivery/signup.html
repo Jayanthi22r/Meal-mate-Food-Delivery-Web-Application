@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Meal Mate</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'delivery/css/styles.css' %}">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to right, #f8f5f0, #e8dfd1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 450px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center;
+            border-top: 6px solid #d4a017;
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #5c3d2e;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+
+        p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            color: #5c3d2e;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #d4a017;
+            box-shadow: 0 0 5px rgba(212,160,23,0.3);
+        }
+
+        textarea {
+            resize: none;
+            height: 90px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #d4a017;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #b8860b;
+        }
+
+        .signin-link {
+            margin-top: 20px;
+            display: block;
+            color: #8b5e3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signin-link:hover {
+            color: #5c3d2e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon">📝</div>
+
+        <h2>Create Account</h2>
+        <p>Join Meal-Mate and start ordering delicious meals</p>
+
+        <form method="POST" action="{% url 'handle_signup' %}">
+            {% csrf_token %}
+
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter username" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter password" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter email" required>
+
+            <label>Mobile</label>
+            <input type="text" name="mobile" placeholder="Enter mobile number" required>
+
+            <label>Address</label>
+            <textarea name="address" placeholder="Enter delivery address" required></textarea>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <a href="/signin/" class="signin-link">
+            Already have an account? Sign In
+        </a>
+    </div>
+
+</body>
+</html>

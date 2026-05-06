@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Restaurant</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to right, #f8f5f0, #e8dfd1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-top: 6px solid #8b5e3c;
+        }
+
+        h2 {
+            text-align: center;
+            color: #5c3d2e;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4d4d4d;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #c7b299;
+            border-radius: 8px;
+            font-size: 15px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #8b5e3c;
+            box-shadow: 0 0 5px rgba(139, 94, 60, 0.4);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #8b5e3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background: #6f472d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Add Restaurant</h2>
+
+        <form method="POST" action="{% url 'add_restaurant' %}">
+            {% csrf_token %}
+
+            <label for="name">Restaurant Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter restaurant name" required>
+
+            <label for="picture">Picture URL</label>
+            <input type="url" id="picture" name="picture" placeholder="Enter image URL" required>
+
+            <label for="cuisine">Cuisine</label>
+            <input type="text" id="cuisine" name="cuisine" placeholder="Enter cuisine type" required>
+
+            <label for="rating">Rating</label>
+            <input type="number" id="rating" name="rating" step="0.1" min="0" max="5" placeholder="0 - 5" required>
+
+            <button type="submit">Add Restaurant</button>
+        </form>
+    </div>
+
+</body>
+</html>

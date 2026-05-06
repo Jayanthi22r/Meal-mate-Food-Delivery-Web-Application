@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favourite Restaurants</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to right, #f8f5f0, #e8dfd1);
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        h3 {
+            text-align: center;
+            color: #8b5e3c;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #5c3d2e;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #8b5e3c;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f9f4ee;
+        }
+
+        img {
+            width: 110px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .menu-btn {
+            text-decoration: none;
+            background: #5cb85c;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu-btn:hover {
+            background: #449d44;
+        }
+
+        .rating {
+            color: #d4a017;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .empty-msg {
+            text-align: center;
+            font-size: 22px;
+            color: #8b5e3c;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Welcome, {{ username }}</h3>
+        <h1>My Favourite Restaurants</h1>
+
+        {% if restaurants %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>Cuisine</th>
+                    <th>Rating</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for restaurant in restaurants %}
+                <tr>
+                    <td>
+                        <img src="{{ restaurant.picture }}" 
+                             alt="Picture of {{ restaurant.name }}">
+                    </td>
+                    <td>{{ restaurant.name }}</td>
+                    <td>{{ restaurant.cuisine }}</td>
+                    <td class="rating">⭐ {{ restaurant.rating }}/5</td>
+                    <td>
+                        <a href="{% url 'customer_menu' restaurant.id username %}" class="menu-btn">
+                            View Menu
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p class="empty-msg">No favourite restaurants found 🍽️</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

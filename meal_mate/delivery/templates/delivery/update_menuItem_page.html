@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Menu Item</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to right, #f8f5f0, #e8dfd1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 500px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-top: 6px solid #d4a017;
+        }
+
+        h2 {
+            text-align: center;
+            color: #5c3d2e;
+            margin-bottom: 25px;
+            font-size: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #5c3d2e;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #d4a017;
+            box-shadow: 0 0 5px rgba(212,160,23,0.3);
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .checkbox-container input {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #d4a017;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #b8860b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Update Menu Item</h2>
+
+        <form method="POST" action="{% url 'update_menuItem' menuItem.id %}">
+            {% csrf_token %}
+
+            <label>Item Name</label>
+            <input type="text" 
+                   name="name" 
+                   value="{{ menuItem.name }}" 
+                   required>
+
+            <label>Description</label>
+            <textarea name="description" required>{{ menuItem.description }}</textarea>
+
+            <label>Price</label>
+            <input type="number" 
+                   name="price" 
+                   step="0.01" 
+                   value="{{ menuItem.price }}" 
+                   required>
+
+            <div class="checkbox-container">
+                <input type="checkbox" 
+                       name="is_veg"
+                       {% if menuItem.is_veg %}checked{% endif %}>
+                <label>Vegetarian</label>
+            </div>
+
+            <label>Image URL</label>
+            <input type="url" 
+                   name="picture" 
+                   value="{{ menuItem.picture }}">
+
+            <button type="submit">Update Item</button>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Meal Mate</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to right, #f8f5f0, #e8dfd1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 600px;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-top: 6px solid #8b5e3c;
+        }
+
+        h1 {
+            text-align: center;
+            color: #5c3d2e;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #8b5e3c;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f9f4ee;
+        }
+
+        .home-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            text-decoration: none;
+            background: #5cb85c;
+            color: white;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            background: #449d44;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>User Profile</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Information</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Username</td>
+                    <td>{{ username }}</td>
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td>{{ email }}</td>
+                </tr>
+
+                <tr>
+                    <td>Mobile</td>
+                    <td>{{ mobile }}</td>
+                </tr>
+
+                <tr>
+                    <td>Address</td>
+                    <td>{{ address }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="/" class="home-btn">Go to Home</a>
+    </div>
+
+</body>
+</html>
